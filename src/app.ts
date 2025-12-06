@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from "express"
 import initBD from "./config/db/db"
 import { usersRoutes } from "./modules/users/user.routes"
 import { authRoutes } from "./modules/auth/auth.routes"
+import { vehicleRoutes } from "./modules/vehicles/vehicle.routes"
 
 const app = express()
 
@@ -17,10 +18,12 @@ app.get('/', (req:Request, res:Response) => {
 // !------------ Users CRUD -----------
 app.use("/api/v1/auth",usersRoutes) 
 app.use("/api/v1",usersRoutes)
-
-
 // !-------------- AUTH ----------
 app.use("/api/v1/auth",authRoutes)
+
+// ! ----------- Vehicles CRUD----------
+ app.use("/api/v1",vehicleRoutes)
+
 
 app.use((req , res)=>{
     res.status(404).json({

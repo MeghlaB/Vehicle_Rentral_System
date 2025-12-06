@@ -6,12 +6,12 @@ const createUser = async (req: Request, res: Response) => {
     try {
         const result = await userServices.createUser(req.body);
 
-     
+
         if (!result.success) {
             return res.status(400).json(result);
         }
 
-    
+
         res.status(201).json({
             success: true,
             message: "User registration successful",
@@ -26,11 +26,11 @@ const createUser = async (req: Request, res: Response) => {
     }
 };
 
-//  ----------------Create users crud ---------------
-const getUsers = async(req:Request,res:Response)=>{
-    try{
-        const result= await userServices.getUsers()
-         res.status(200).json({
+//  ----------------Get users crud ---------------
+const getUsers = async (req: Request, res: Response) => {
+    try {
+        const result = await userServices.getUsers()
+        res.status(200).json({
             success: true,
             message: "Users retrieved successfully",
             data: result.rows,
@@ -46,7 +46,7 @@ const getUsers = async(req:Request,res:Response)=>{
     }
 }
 
-//  ---------------- get single users -----------------------
+//  ---------------- get single users -------------
 const getSingleUser = async (req: Request, res: Response) => {
     try {
         const result = await userServices.getSingleUser(req.params.userId!)
@@ -75,26 +75,26 @@ const getSingleUser = async (req: Request, res: Response) => {
 
 //  ------------- get usersUpdated----------------
 
-const getUserUpdated = async(req:Request,res:Response)=>{
-    const {name,email,role,phone}= req.body
-    try{
-        const result = await userServices.getUserUpdated(name,email,role,phone,req.params.userId as string)
-        if(result.rows.length === 0){
+const getUserUpdated = async (req: Request, res: Response) => {
+    const { name, email, role, phone } = req.body
+    try {
+        const result = await userServices.getUserUpdated(name, email, role, phone, req.params.userId as string)
+        if (result.rows.length === 0) {
             res.status(400).json({
-                success:false,
-                message:"users not found"
+                success: false,
+                message: "users not found"
             })
-        }else{
+        } else {
             res.status(200).json({
-                success:true,
-                message:"User updated successfully",
-                data:result.rows[0]
+                success: true,
+                message: "User updated successfully",
+                data: result.rows[0]
             })
         }
-    }catch(err:any){
+    } catch (err: any) {
         res.status(500).json({
-            success:false,
-            message:err.message
+            success: false,
+            message: err.message
         })
     }
 }
@@ -103,7 +103,10 @@ const getUserUpdated = async(req:Request,res:Response)=>{
 
 const userDeleted = async (req: Request, res: Response) => {
     try {
-        const result = await userServices.userDeleted(req.params.userId!)
+        const {userId } = req.params; 
+
+        const result = await userServices.userDeleted(userId!)
+        console.log(result)
         if (result.rowCount === 0) {
             res.status(404).json({
                 success: false,
@@ -131,11 +134,11 @@ const userDeleted = async (req: Request, res: Response) => {
 
 
 
-export const usersControllers ={
+export const usersControllers = {
     createUser,
     getUsers,
     getUserUpdated,
     userDeleted,
     getSingleUser
- 
+
 }

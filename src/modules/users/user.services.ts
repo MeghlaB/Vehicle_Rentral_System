@@ -32,7 +32,9 @@ const createUser = async (payload: Record<string, unknown>) => {
 //  ------------------- get users crud --------------------
 const getUsers = async () => {
     const result = await pool.query(`SELECT * FROM users`)
-    delete result.rows[0].password
+    result.rows.map(user => {
+        delete user.password
+    })
     return result
 
 }
@@ -54,10 +56,10 @@ const getUserUpdated = async (name: string, email: string, role: string, phone: 
 
 //  --------------- deleted user --------------------
 
-const userDeleted = async (userId :string) => {
-    const result = await pool.query(`DELETE FROM users WHERE id = $1`, [userId])
-    delete result.rows[0].password
-    return result;
+const userDeleted = async (userId: string | undefined) => {
+    const result = await pool.query(`DELETE FROM users WHERE id=$1 RETURNING *`, [userId])
+    // delete result.rows[0]
+    return result
 }
 
 
