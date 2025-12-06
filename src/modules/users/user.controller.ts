@@ -1,0 +1,24 @@
+import { Request, Response } from "express";
+import { userServices } from "./user.services";
+
+const createUser = async (req: Request, res: Response) => {
+    try {
+        const result = await userServices.createUser(req.body)
+      
+        res.status(201).json({
+            success: true,
+            message: "user successfully registration",
+            data: result.rows[0]
+        })
+    } catch (err: any) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+
+        })
+    }
+}
+
+export const usersControllers ={
+    createUser
+}
