@@ -11,12 +11,11 @@ const initBD = async () => {
         `CREATE TABLE IF NOT EXISTS users(
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
-        role VARCHAR(50) NOT NULL,
+        role VARCHAR(20) NOT NULL CHECK (role IN ('admin', 'customer')),
         email VARCHAR(150) UNIQUE NOT NULL,
         password TEXT NOT NULL,
-        Phone VARCHAR(15),
-         created_at TIMESTAMP DEFAULT NOW(),
-        updated_at TIMESTAMP DEFAULT NOW()
+        Phone VARCHAR(15)
+         
         )`
     )
 }

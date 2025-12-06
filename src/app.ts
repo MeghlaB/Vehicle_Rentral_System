@@ -15,7 +15,8 @@ app.get('/', (req:Request, res:Response) => {
   res.send('VEHICLE_RENTAL_SYSTEM.........!')
 })
 // !------------ Users CRUD -----------
-app.use("/api/v1/auth/signup",usersRoutes) 
+app.use("/api/v1/auth",usersRoutes) 
+app.use("/api/v1",usersRoutes)
 
 
 // !-------------- AUTH ----------
