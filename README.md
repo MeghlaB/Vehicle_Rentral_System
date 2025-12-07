@@ -40,21 +40,20 @@ The Vehicle Rental System backend API allows you to:
 git clone https://github.com/ImArijitBasu/vehicle-rental-backend
 cd vehicle-rental-backend
 
-
 2. **Install dependencies**
-```bash
+
 npm install
 
 3. **Create environment variables**
-``bash
+
 DATABASE_URL=your_postgres_connection_string
 JWT_SECRET=your_secret_key
 PORT=5000
 
 4. **Start development server**
-``bash
+
 npm run dev
 
 5. **Base API URL**
-``bash
+
  http://localhost:5000/api/v1
