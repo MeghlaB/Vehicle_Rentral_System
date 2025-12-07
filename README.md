@@ -39,21 +39,28 @@ The Vehicle Rental System backend API allows you to:
 ```bash
 git clone https://github.com/MeghlaB/Vehicle_Rentral_System
 cd Vehicle_Rentral_System
-
+```
 2. **Install dependencies**
 
+```
 npm install
 
+```
+```
 3. **Create environment variables**
 
 DATABASE_URL=your_postgres_connection_string
 JWT_SECRET=your_secret_key
 PORT=5000
-
+```
+```
 4. **Start development server**
 
 npm run dev
-
+```
+```
 5. **Base API URL**
 
  http://localhost:5000/api/v1
+ 
+ ```
