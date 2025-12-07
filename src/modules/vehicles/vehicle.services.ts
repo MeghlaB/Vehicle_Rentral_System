@@ -15,7 +15,7 @@ const createVehicles = async (payload:Record<string,unknown>)=>{
 //  ------------------- Get All Vehicle ----------
 const getVehicles = async()=>{
     const result = await pool.query(`SELECT * FROM vehicles`)
-    console.log(getVehicles)
+
     return result.rows
 }
 

@@ -75,9 +75,9 @@ const updateBooking = async (req: Request, res: Response) => {
     const { bookingId } = req.params;
     const { status } = req.body;
     const user = req.user;
-    console.log(user)
+ 
     const result = await bookingServices.updateBooking(bookingId as string, status, user);
-console.log(result)
+
     res.status(result.statusCode).json({
       success: result.success,
       message: result.message,

@@ -87,7 +87,7 @@ const getVehiclesUpdated = async (req: Request, res: Response) => {
             availability_status,
             req.params.vehicleId as string
         );
-        console.log(result)
+   
         if (result.rows.length === 0) {
             return res.status(400).json({
                 success: false,
@@ -114,7 +114,7 @@ const vehicleDeleted = async (req: Request, res: Response) => {
         const { vehicleId } = req.params;
 
         const result = await vehicleServices.vehicleDeleted(vehicleId!)
-        console.log(result)
+    
         if (result.rowCount === 0) {
             res.status(404).json({
                 success: false,
