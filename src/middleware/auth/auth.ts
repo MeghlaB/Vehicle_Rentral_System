@@ -38,12 +38,11 @@ const authorize = (...allowedRoles: string[]) => {
                 });
             }
 
-            // Admin → full access
+       
             if (decoded.role === "admin") {
                 return next();
             }
 
-            // Customer → only for routes having :userId
             if (decoded.role === "customer" && req.params.userId) {
                 const paramAsNumber = Number(req.params.userId);
 

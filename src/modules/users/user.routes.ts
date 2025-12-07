@@ -8,6 +8,6 @@ router.post("/signup",usersControllers.createUser)
 router.get("/users",authorize("admin"),usersControllers.getUsers)
 router.get("/users/:userId",authorize("admin","customer"),usersControllers.getSingleUser)
 router.put("/users/:userId",authorize("admin","customer"),usersControllers.getUserUpdated)
-router.delete("/users/:userId",authorize("admin","customer"),usersControllers.userDeleted)
+router.delete("/users/:userId",authorize("admin"),usersControllers.userDeleted)
 
 export  const usersRoutes= router

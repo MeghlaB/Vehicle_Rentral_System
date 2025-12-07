@@ -14,7 +14,7 @@ const createUser = async (req: Request, res: Response) => {
 
         res.status(201).json({
             success: true,
-            message: "User registration successful",
+            message: "User registered successfully",
             data: result.data
         });
 
@@ -106,7 +106,7 @@ const userDeleted = async (req: Request, res: Response) => {
         const {userId } = req.params; 
 
         const result = await userServices.userDeleted(userId!)
-        console.log(result)
+       
         if (result.rowCount === 0) {
             res.status(404).json({
                 success: false,
