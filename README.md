@@ -37,8 +37,8 @@ The Vehicle Rental System backend API allows you to:
 
 1. **Clone repository**
 ```bash
-git clone https://github.com/ImArijitBasu/vehicle-rental-backend
-cd vehicle-rental-backend
+git clone https://github.com/MeghlaB/Vehicle_Rentral_System
+cd Vehicle_Rentral_System
 
 2. **Install dependencies**
 
